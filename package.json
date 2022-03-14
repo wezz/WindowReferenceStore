@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "A script to manage global references on the window object",
   "main": "build/index.js",
+  "types": "./src/WindowReferenceStore.d.ts",
   "scripts": {
     "build": "webpack",
     "test": "jest",
