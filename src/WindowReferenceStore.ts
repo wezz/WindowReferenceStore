@@ -21,8 +21,6 @@
     if (parent !== null) {
       this.root = parent as any;
     }
-    console.log("this.storeName", this.storeName);
-    console.log("this.storeNamespace", this.storeNamespace);
     this.registerGlobalReferences();
   }
 
@@ -58,7 +56,6 @@
   }
 
   public set(key: string, ref: any, override = false) {
-    console.log("this.has(key)", this.has(key));
     if (this.has(key) && !override) {
       console.warn(
         `Reference '${key}' already exists in store '${this.storeName}' and override wasn't enabled`
