@@ -1,6 +1,6 @@
 {
   "name": "@wezz/window-reference-store",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A script to manage global references on the window object",
   "main": "build/index.js",
   "types": "build/index.d.ts",
