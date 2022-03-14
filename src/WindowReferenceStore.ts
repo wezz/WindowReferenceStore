@@ -84,7 +84,6 @@
   }
 }
 
-
 export interface WindowReferenceStoreClass {
   constructor(storeName?: string, namespace?: string, parent?: null);
   has(key: any): boolean;
