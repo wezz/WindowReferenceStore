@@ -1,4 +1,4 @@
-export interface WindowReferenceStore {
+export default class WindowReferenceStore {
   constructor(storeName?: string, namespace?: string, parent?: null);
   has(key: any): boolean;
   get(key: any): any;
