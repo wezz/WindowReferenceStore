@@ -1,3 +1,2 @@
-import WindowReferenceStore from "./WindowReferenceStore";
-console.log("WindowReferenceStore", WindowReferenceStore);
+import { WindowReferenceStore } from "./WindowReferenceStore";
 export default WindowReferenceStore;
