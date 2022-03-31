@@ -1,2 +1,2 @@
-import { WindowReferenceStore } from "./WindowReferenceStore.ts";
+import WindowReferenceStore from "./WindowReferenceStore.ts";
 export default WindowReferenceStore;
