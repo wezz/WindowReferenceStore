@@ -1,6 +1,6 @@
 {
   "name": "@wezz/window-reference-store",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A script to manage global references on the window object",
   "type": "module",
   "main": "./dist/window-reference-store.umd.cjs",
