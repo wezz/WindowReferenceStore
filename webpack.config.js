@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const PrettierPlugin = require("prettier-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const getPackageJson = require('./scripts/getPackageJson');
 
@@ -11,16 +10,6 @@ const {
   repository,
   author,
 } = getPackageJson('version', 'name', 'license', 'repository', 'author');
-
-const banner = `
-  ${name} v${version}
-  ${repository.url}
-
-  Copyright (c) ${author.replace(/ *\<[^)]*\> */g, " ")}
-
-  This source code is licensed under the ${license} license found in the
-  LICENSE file in the root directory of this source tree.
-`;
 
 module.exports = {
   mode: "production",
@@ -44,21 +33,9 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
-        use: ['url-loader'],
       }
     ]
   },
-  plugins: [
-    new PrettierPlugin(),
-    new webpack.BannerPlugin(banner)
-  ],
   resolve: {
       extensions: [".tsx", ".ts", ".js"]
   }
