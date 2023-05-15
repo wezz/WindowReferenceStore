@@ -9,7 +9,7 @@
       : typeof document !== "undefined"
       ? (document as any)
       : {};
-  constructor(storeName = "", namespace = "", parent = null) {
+  constructor(storeName : string= "", namespace : string= "", parent : any= null) {
     if (namespace) {
       this.storeNamespace = namespace;
     } else {
@@ -40,7 +40,7 @@
     }
   }
 
-  public has(key) {
+  public has(key: string) {
     if (!key) {
       console.log(
         `Attempted to fetch an empty key. Reference store namespace: ${this.storeNamespace}. Reference store name: ${this.storeName}`
@@ -52,7 +52,7 @@
     );
   }
 
-  public get(key) {
+  public get(key: string) {
     if (!this.has(key)) {
       console.log(
         `Could not find reference ${key} in store ${this.storeNamespace} ${this.storeName}`
@@ -83,18 +83,10 @@
     }
   }
 
-  public remove(key) {
+  public remove(key: string) {
     if (this.has(key)) {
       return delete this.root[this.storeNamespace][this.storeName][key];
     }
     return false;
   }
-}
-
-export interface WindowReferenceStoreClass {
-  constructor(storeName?: string, namespace?: string, parent?: null);
-  has(key: any): boolean;
-  get(key: any): any;
-  set(key: string, ref: any, override?: boolean): boolean;
-  remove(key: any): boolean;
 }

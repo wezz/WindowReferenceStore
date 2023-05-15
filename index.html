@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Window Reference Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="/src/main.ts"></script>
+  <style>
+    
+body {
+	font-family: sans-serif;
+	margin:0 auto;
+	padding: 2rem 1rem;
+	max-width: 800px;
+}
+
+
+[aria-hidden="true"] {
+	display:none;
+}
+
+.exampletarget {
+	border:1px solid #ccc;
+	padding:1rem;
+}
+  </style>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root">
+      <h1>Window Reference Store</h1>
+      <p>This page shows different examples of you can register different stores</p>
+  </div>
+  
+
+  <div id="examples">
+    <section id="example1">
+      <h2>Example 1. Store with namespace and store name</h2>
+      <script>
+        document.addEventListener("DOMContentLoaded",async function(){
+          const statusElm = document.querySelector("#example1 pre");
+          
+          if (window.windowreferencestore) {
+            statusElm.innerHTML += `WindowReferenceStore found \n`;
+          }
+          const storeInstance = new window.windowreferencestore("example1store", "example1namespace");
+          console.log('storeInstance', storeInstance)
+          if (storeInstance) {
+            statusElm.innerHTML += `Store 'example1store' initiated on namespace 'example1namespace' \n`;
+          }
+          
+          storeInstance.set('example1key', example1callback);
+          statusElm.innerHTML += `Stored 'example1key' in store 'example1store' \n`;
+
+          if (storeInstance.has('example1key')) {
+            statusElm.innerHTML += `Verified that store 'example1store' has reference 'example1key' \n`;
+          }
+          
+          if (!storeInstance.has('nonExistingKey')) {
+            statusElm.innerHTML += `Verified that store 'example1store' does NOT have reference 'nonExistingKey' \n`;
+          }
+
+          const example1ref = storeInstance.get('example1key');
+          if (example1ref) {
+            statusElm.innerHTML += `Got reference for 'example1key' in store 'example1store' \n`;
+            if (example1ref()) {
+              statusElm.innerHTML += `Reference function 'example1key' in store 'example1store has run successfully' \n`;
+            }
+          }
+        });
+
+        function example1callback() {
+          console.log('Inside of example1callback')
+          return true;
+        }
+      </script>
+      <pre></pre>
+    </section>
+
+  </div>
+</body>
+</html>
