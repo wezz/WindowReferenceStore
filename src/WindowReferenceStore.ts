@@ -1,7 +1,14 @@
 ﻿export default class WindowReferenceStore {
   private storeNamespace = "windowReferenceStore";
   private storeName = "";
-  private root: any = window as any;
+  private root: any =
+    typeof window !== "undefined"
+      ? (window as any)
+      : typeof global !== "undefined"
+      ? (global as any)
+      : typeof document !== "undefined"
+      ? (document as any)
+      : {};
   constructor(storeName = "", namespace = "", parent = null) {
     if (namespace) {
       this.storeNamespace = namespace;
