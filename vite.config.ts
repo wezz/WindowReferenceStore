@@ -9,8 +9,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'window-reference-manager',
-      fileName: 'window-reference-manager',
+      name: 'window-reference-store',
+      fileName: 'window-reference-store',
     },
   },
   plugins: [dts()],
