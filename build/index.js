@@ -1,6 +1,6 @@
 /*!
  * 
- *   @wezz/window-reference-store v0.0.8
+ *   @wezz/window-reference-store v0.0.9
  *   https://github.com/wezz/WindowReferenceStore
  *
  *   Copyright (c) Wezz Balk (https://github.com/wezz)
